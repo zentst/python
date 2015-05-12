@@ -1,0 +1,17 @@
+<html>
+	<body>
+		{% if error_message %}
+		{{error_message}}
+		<input type="button" value="BackToIndex" onclick="location='{% url 'todo:index' %}'"/>
+		{% else %}
+		<form name="edit" action="{% url 'todo:edit' todolist.id %}" method="post">
+			{% csrf_token %}
+			<table>
+				{{form.as_table}}
+			</table>
+			<input type="submit" value="edit" />
+			<input type="button" value="BackToindex" onclick="location='{% url 'todo:index' %}'">
+		</form>
+		{% endif %}
+	</body>
+</html>

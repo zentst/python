@@ -1,0 +1,12 @@
+<html>
+	<body>
+		<h1>User Register</h1>
+		{% if error_message %}<h6>{{error_message}}</h6>{% endif %}
+		<form name="register" action="{% url 'todo:register' %}"  method="post">
+			{% csrf_token %}
+			<table>{{form.as_table}}</table>
+			<input type="submit" value="regist" />
+			<input type="button" value="login" onclick="location='{% url 'todo:login' %}'">
+		</form>
+	</body>
+</html>

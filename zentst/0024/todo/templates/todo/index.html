@@ -1,0 +1,20 @@
+<html>
+	<body>
+		<p>welcome {{user}} <a href="{% url 'todo:logout' %}">logout</a></p>
+		{% if redirect_message %}
+		{{redirect_message}}
+		{% endif %}
+		<table border="1">
+			<tr>
+			<th>Quest</th><th>Manage</th>
+			</tr>
+			{% for each in todolist %}
+			<tr>
+				<td><a href="{% url 'todo:detail' each.id %}">{{each.subject}}</a></td>
+				<td><a href="{% url 'todo:delete' each.id %}">delete</a></td>	
+			</tr>
+			{% endfor %}
+		</table>
+		<a href="{% url 'todo:add' %}">add</a>
+	</body>
+</html>
